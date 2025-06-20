@@ -22,6 +22,15 @@ data:
           log_type: error
           service: ${FILEBEAT_SERVICE}
         fields_under_root: true
+    
+      - type: log
+        enabled: true
+        paths:
+          - /var/log/app/admin.log
+        fields:
+          log_type: admin
+          service: ${FILEBEAT_SERVICE}
+        fields_under_root: true
 
     output.logstash:
       hosts: ${LOGSTASH_HOSTS}
